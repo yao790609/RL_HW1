@@ -47,14 +47,14 @@ Users can interact with the grid to **set a start point, goal, and obstacles**, 
    - Ensure **"Step 1" can fit in a single line**.
 5. **Center-align the input field for `n`** for better aesthetics.
 
-## 🎯 GridWorld Reinforcement Learning  
+# 🎯 GridWorld Reinforcement Learning  
 This project supports **Value Iteration** & **Policy Iteration** with:  
 
-### 📊 Visualization  
+## 📊 Visualization  
 - **Value Function (`Value Matrix`)**  
 - **Optimal Policy (`Policy Matrix`)**  
 
-### 🎯 Rewards  
+## 🎯 Rewards  
 - **Goal Cell:** `+20`  
 - **Obstacle Cells:** `-1`  
 
