@@ -71,5 +71,11 @@ These matrices help analyze **reinforcement learning strategies**.
 ## 💡 Future Improvements  
 - 🚀 Implement **Deep Q-Learning (DQN)** for optimal policy learning.  
 - 🎨 Enhance **grid customization** (e.g., different obstacle types).  
-- ⏳ Add **real-time updates** for value iteration.  
+- ⏳ Add **real-time updates** for value iteration.
 
+#Project_Demo
+HW1-1
+![image](https://github.com/yao790609/RL_HW1/blob/main/HW1-1.jpg)
+
+HW1-2
+![image](https://github.com/yao790609/RL_HW1/blob/main/HW1-2.jpg)
