@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridworld</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* 讓輸入 `n` 的表單置中 */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* 讓 `label` 置中 */
+        .form-container label {
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        /* 讓 `input` 置中對齊 */
+        .form-container input {
+            width: 50px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        /* 調整按鈕樣式 */
+        .form-container button {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        /* 容器置中 */
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* 方格樣式 */
+        .grid {
+            display: grid;
+            border: 1px solid black;
+        }
+
+        .cell {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .obstacle { background-color: gray !important; cursor: not-allowed; }
+        .start { background-color: green !important; color: white; }
+        .end { background-color: red !important; color: white; }
+        .complete { background-color: blue !important; color: white; }
+
+        /* 步驟說明的樣式 */
+        .steps {
+            font-size: 14px;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            width: 350px;  /* 固定寬度，確保步驟 1 不會換行 */
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .highlight {
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .obstacle-count { background-color: gray; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- 輸入 `n` 的表單 -->
+    <div class="form-container">
+        <form method="POST">
+            <label for="grid_size">輸入 n (3~10):</label>
+            <input type="number" id="grid_size" name="grid_size" min="3" max="10" value="{{ n }}">
+            <button type="submit">生成方格</button>
+        </form>
+    </div>
+
+    <!-- 步驟提示 -->
+    <div class="grid-container">
+        <div class="steps" id="steps">
+            <p><strong>步驟 1：</strong>請點選 <span class="highlight obstacle-count" id="remaining-obstacles">{{ n - 2 }}</span> 個方格作為障礙物</p>
+        </div>
+
+        <!-- 方格 -->
+        <div class="grid" style="grid-template-columns: repeat({{ n }}, 30px);">
+            {% for i in range(n) %}
+                {% for j in range(n) %}
+                    <div class="cell" id="cell-{{ i }}-{{ j }}" data-row="{{ i }}" data-col="{{ j }}">{{ i * n + j + 1 }}</div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        let gridSize = {{ n }};
+        let obstacleCount = gridSize - 2;
+        let obstaclesSet = 0;
+        let startSet = false, endSet = false;
+
+        $(document).ready(function() {
+            $(".cell").click(function() {
+                let row = $(this).data("row");
+                let col = $(this).data("col");
+
+                if (!startSet && obstaclesSet === obstacleCount) {
+                    $(this).addClass("start");
+                    startSet = true;
+                    $("#steps").html('<p><strong>步驟 3：</strong>請選擇 <span class="highlight end">終點</span></p>');
+                } else if (!endSet && startSet) {
+                    $(this).addClass("end");
+                    endSet = true;
+                    $("#steps").html('<p><strong>步驟 4：</strong><span class="highlight complete">設定完成！</span></p>');
+                } else if (obstaclesSet < obstacleCount) {
+                    $(this).addClass("obstacle").off("click");
+                    obstaclesSet++;
+                    $("#remaining-obstacles").text(obstacleCount - obstaclesSet);
+
+                    if (obstaclesSet === obstacleCount) {
+                        $("#steps").html('<p><strong>步驟 2：</strong>請選擇 <span class="highlight start">起點</span></p>');
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
