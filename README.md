@@ -73,9 +73,9 @@ These matrices help analyze **reinforcement learning strategies**.
 - 🎨 Enhance **grid customization** (e.g., different obstacle types).  
 - ⏳ Add **real-time updates** for value iteration.
 
-#Project_Demo
-HW1-1
+# Project_Demo
+## HW1-1
 ![image](https://github.com/yao790609/RL_HW1/blob/main/HW1-1.jpg)
 
-HW1-2
+## HW1-2
 ![image](https://github.com/yao790609/RL_HW1/blob/main/HW1-2.jpg)
