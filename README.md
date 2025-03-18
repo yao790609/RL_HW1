@@ -6,7 +6,7 @@ It is built using **Flask** and **jQuery**, allowing users to configure a dynami
 
 Users can interact with the grid to **set a start point, goal, and obstacles**, and the system provides visual feedback.
 
-# Prompt
+# 📌Project Prompt  
 ## Project Overview
 - I am developing the classic **GridWorld** problem in **deep reinforcement learning**, using **Flask** to build the web application.
 - Users can input **n (range: 3–10)** to define the grid size and generate an **n×n grid** dynamically.
@@ -46,6 +46,15 @@ Users can interact with the grid to **set a start point, goal, and obstacles**, 
 4. **Width Adjustment**:
    - Ensure **"Step 1" can fit in a single line**.
 5. **Center-align the input field for `n`** for better aesthetics.
+
+## Add new function for HW1-2
+I am working on **Deep Reinforcement Learning**, implementing the **Value Function** and performing **Policy Iteration**. The **Value Matrix** and **Policy Matrix** should be displayed in an HTML interface.  
+
+1. **Reward System**: 
+   - **Goal Cell:** `+20` reward.  
+   - **Obstacle Cells:** `-1` penalty.  
+   - **Normal Movement:** `-0.5` penalty per step.  
+
 
 # 🎯 GridWorld Reinforcement Learning  
 This project supports **Value Iteration** & **Policy Iteration** with:  
