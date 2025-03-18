@@ -21,7 +21,7 @@ Users can interact with the grid to **set a start point, goal, and obstacles**, 
    - Each **grid cell has a 1px border**.
    - The **number label inside each grid cell is centered**.
      
-## Advanced Features (New Additions)
+## User Input, Operation Step and Display Adjustments
 1. **Enhancing GridWorld Display Using JQuery**:
    - The **start cell** is marked with a **green background**.
    - The **goal cell** is marked with a **red background**.
@@ -32,23 +32,21 @@ Users can interact with the grid to **set a start point, goal, and obstacles**, 
    - Users can **click on grid cells** to define the **start and goal positions**.
 4. **Displaying Operation Steps on the Frontend**:
    - Instead of recording user actions, it **guides the user on what steps to take**.
-   - 
-## Operation Step Display Adjustments
-1. **Numbering steps as "Step 1 – Step 4"**.
-2. **Color-coded key terms**:
+5. **Numbering steps as "Step 1 – Step 4"**.
+6. **Color-coded key terms**:
    - **Start**: Green background
    - **Goal**: Red background
    - **n-2 (Obstacles)**: Gray background
    - **Complete**: Blue background
-3. **Resizing the operation steps box**:
+7. **Resizing the operation steps box**:
    - **Adjust the size to match the lower grid cells**, making it more compact.
    - **Center-align the text inside the step instructions**.
-4. **Width Adjustment**:
+8. **Width Adjustment**:
    - Ensure **"Step 1" can fit in a single line**.
-5. **Center-align the input field for `n`** for better aesthetics.
+9. **Center-align the input field for `n`** for better aesthetics.
 
 ## Add new function for HW1-2
-I am working on **Deep Reinforcement Learning**, implementing the **Value Function** and performing **Policy Iteration**. The **Value Matrix** and **Policy Matrix** should be displayed in an HTML interface.  
+- I am working on **Deep Reinforcement Learning**, implementing the **Value Function** and performing **Policy Iteration**. The **Value Matrix** and **Policy Matrix** should be displayed in an HTML interface.  
 
 1. **Reward System**: 
    - **Goal Cell:** `+20` reward.  
