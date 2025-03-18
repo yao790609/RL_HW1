@@ -56,7 +56,8 @@ This project supports **Value Iteration** & **Policy Iteration** with:
 
 ## 🎯 Rewards  
 - **Goal Cell:** `+20`  
-- **Obstacle Cells:** `-1`  
+- **Obstacle Cells:** `-1`
+- **Normal Cells:** `-0.5`  
 
 These matrices help analyze **reinforcement learning strategies**.  
 ---
